@@ -35,6 +35,22 @@ public class LonelyTwitterActivity extends Activity {
 		Button saveButton = (Button) findViewById(R.id.save);
 		oldTweetsList = (ListView) findViewById(R.id.oldTweetsList);
 
+		Tweet tweet = new ImportantTweet("");
+		Mood mood1 = new SadMood();
+		Mood mood2 = new HappyMood();
+
+		Log.d("Tag", mood1.getMood());
+		Log.d("Tag", mood2.getMood());
+
+		tweet.addMood(mood1);
+		tweet.addMood(mood2);
+
+		ArrayList<Mood> moodslist = tweet.getMoodList();
+
+		for (Mood m : moodslist) {
+			Log.d("Mood Test", "Mood string " + m.getMood());
+		}
+
 		saveButton.setOnClickListener(new View.OnClickListener() {
 
 			public void onClick(View v) {
